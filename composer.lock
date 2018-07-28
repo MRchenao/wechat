@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7904d07d1e1765a0a199aa11d6301a3",
+    "content-hash": "99996fdd210e14624bc656a40026e353",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -218,6 +218,76 @@
             "time": "2018-04-10T10:11:19+00:00"
         },
         {
+            "name": "encore/laravel-admin",
+            "version": "v1.5.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/z-song/laravel-admin.git",
+                "reference": "c896bf22db2038379f0cc6b8625834aa4ed2ec55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/z-song/laravel-admin/zipball/c896bf22db2038379f0cc6b8625834aa4ed2ec55",
+                "reference": "c896bf22db2038379f0cc6b8625834aa4ed2ec55",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0",
+                "symfony/dom-crawler": "~3.1"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "intervention/image": "~2.3",
+                "laravel/browser-kit-testing": "^2.0",
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0",
+                "symfony/css-selector": "~3.1"
+            },
+            "suggest": {
+                "intervention/image": "Required to handling and manipulation upload images (~2.3).",
+                "spatie/eloquent-sortable": "Required to built orderable gird."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\AdminServiceProvider"
+                    ],
+                    "aliases": {
+                        "Admin": "Encore\\Admin\\Facades\\Admin"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "zsong",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "laravel admin",
+            "homepage": "https://github.com/z-song/laravel-admin",
+            "keywords": [
+                "admin",
+                "form",
+                "grid",
+                "laravel"
+            ],
+            "time": "2018-07-09T05:18:57+00:00"
+        },
+        {
             "name": "erusev/parsedown",
             "version": "1.7.1",
             "source": {
@@ -406,6 +476,499 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/api-tester",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/api-tester.git",
+                "reference": "5884bb17b97b853d968d057c8acf1439f26a2a83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/api-tester/zipball/5884bb17b97b853d968d057c8acf1439f26a2a83",
+                "reference": "5884bb17b97b853d968d057c8acf1439f26a2a83",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.5",
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\ApiTester\\ApiTesterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\ApiTester\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Api tester for laravel",
+            "homepage": "https://github.com/laravel-admin-extensions/api-tester",
+            "keywords": [
+                "api",
+                "laravel-admin",
+                "tester"
+            ],
+            "time": "2018-04-27T09:09:23+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/config",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/config.git",
+                "reference": "2df0addf47cdd7b710e148e017c7a07075456623"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/config/zipball/2df0addf47cdd7b710e148e017c7a07075456623",
+                "reference": "2df0addf47cdd7b710e148e017c7a07075456623",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.5",
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Config\\ConfigServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Config\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Config extension for laravel-admin",
+            "homepage": "https://github.com/laravel-admin-extensions/config",
+            "keywords": [
+                "laravel-admin",
+                "setting"
+            ],
+            "time": "2018-04-24T11:42:20+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/helpers",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/helpers.git",
+                "reference": "c670d85e827bf2347d2ff0c26161ab1497f7a5ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/helpers/zipball/c670d85e827bf2347d2ff0c26161ab1497f7a5ed",
+                "reference": "c670d85e827bf2347d2ff0c26161ab1497f7a5ed",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "1.5.*",
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Helpers\\HelpersServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Helpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Helpers extension for laravel-admin",
+            "homepage": "https://github.com/laravel-admin-extensions/helpers",
+            "keywords": [
+                "helpers",
+                "laravel-admin"
+            ],
+            "time": "2018-04-24T09:35:32+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/log-viewer",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/log-viewer.git",
+                "reference": "19c78d7b81b0f062d4a1a61fb0c0310305b097c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/log-viewer/zipball/19c78d7b81b0f062d4a1a61fb0c0310305b097c2",
+                "reference": "19c78d7b81b0f062d4a1a61fb0c0310305b097c2",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.5",
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\LogViewer\\LogViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\LogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Log viewer for laravel",
+            "homepage": "https://github.com/laravel-admin-extensions/log-viewer",
+            "keywords": [
+                "Viewer",
+                "laravel-admin",
+                "log"
+            ],
+            "time": "2018-04-25T06:14:03+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/media-manager",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/media-manager.git",
+                "reference": "16102ce6ffc788e459135c71cdb16da2fb5d1923"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/media-manager/zipball/16102ce6ffc788e459135c71cdb16da2fb5d1923",
+                "reference": "16102ce6ffc788e459135c71cdb16da2fb5d1923",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.5",
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Media\\MediaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Media\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Media manager for laravel",
+            "homepage": "https://github.com/laravel-admin-extensions/media-manager",
+            "keywords": [
+                "laravel-admin",
+                "manager",
+                "media"
+            ],
+            "time": "2018-04-25T06:10:18+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/messages",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/messages.git",
+                "reference": "5c4bafaa232b2e30595a9ea808715d47fd539fef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/messages/zipball/5c4bafaa232b2e30595a9ea808715d47fd539fef",
+                "reference": "5c4bafaa232b2e30595a9ea808715d47fd539fef",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.5",
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Message\\MessageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Message extension for laravel-admin",
+            "homepage": "https://github.com/laravel-admin-extensions/messages",
+            "keywords": [
+                "laravel-admin",
+                "messages"
+            ],
+            "time": "2018-05-07T02:07:53+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/redis-manager",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/redis-manager.git",
+                "reference": "391d683fc7fa27535142c20de5a70aa9f94ef23c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/redis-manager/zipball/391d683fc7fa27535142c20de5a70aa9f94ef23c",
+                "reference": "391d683fc7fa27535142c20de5a70aa9f94ef23c",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.5",
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0",
+                "predis/predis": "~1.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\RedisManager\\RedisManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\RedisManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Redis manager for laravel-admin",
+            "homepage": "https://github.com/laravel-admin-extensions/redis-manager",
+            "keywords": [
+                "laravel-admin",
+                "manager",
+                "redis"
+            ],
+            "time": "2018-05-03T07:59:06+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/reporter",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/reporter.git",
+                "reference": "e7b02d0a4b8269d3c7bb984107ff16e40901029c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/reporter/zipball/e7b02d0a4b8269d3c7bb984107ff16e40901029c",
+                "reference": "e7b02d0a4b8269d3c7bb984107ff16e40901029c",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.5",
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Reporter\\ReporterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Reporter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Exception reporter for laravel",
+            "homepage": "https://github.com/laravel-admin-extensions/reporter",
+            "keywords": [
+                "exception",
+                "laravel-admin",
+                "reporter"
+            ],
+            "time": "2018-04-24T11:57:24+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/scheduling",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/scheduling.git",
+                "reference": "663ef072b65e8c01c004c3c4577a9428904ba78c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/scheduling/zipball/663ef072b65e8c01c004c3c4577a9428904ba78c",
+                "reference": "663ef072b65e8c01c004c3c4577a9428904ba78c",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.5",
+                "laravel/framework": "~5.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Scheduling\\SchedulingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Scheduling\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Task scheduling extension for laravel-admin",
+            "homepage": "https://github.com/laravel-admin-extensions/scheduling",
+            "keywords": [
+                "laravel-admin",
+                "scheduling",
+                "task"
+            ],
+            "time": "2018-05-07T02:07:14+00:00"
         },
         {
             "name": "laravel/framework",
@@ -966,6 +1529,56 @@
             "time": "2018-07-04T16:31:37+00:00"
         },
         {
+            "name": "predis/predis",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-06-16T16:22:20+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -1497,6 +2110,63 @@
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
             "time": "2018-06-25T11:10:40+00:00"
+        },
+        {
+            "name": "symfony/dom-crawler",
+            "version": "v3.4.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dom-crawler.git",
+                "reference": "201b210fafcdd193c1e45b2994bf7133fb6263e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/201b210fafcdd193c1e45b2994bf7133fb6263e8",
+                "reference": "201b210fafcdd193c1e45b2994bf7133fb6263e8",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "symfony/css-selector": "~2.8|~3.0|~4.0"
+            },
+            "suggest": {
+                "symfony/css-selector": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DomCrawler Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-05-01T22:53:27+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -4020,7 +4690,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "laravel-admin-ext/messages": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
