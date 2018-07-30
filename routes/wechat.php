@@ -6,7 +6,7 @@
  * Time: 0:36
  */
 
-Route::any('/', 'Wechat\WeChatController@serve');
+Route::any('/', 'Wechat\WechatController@serve');
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/user', function () {
