@@ -3,30 +3,24 @@
 namespace App\Http\Controllers\Wechat;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Log;
 use App\User;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use EasyWeChat\Factory;
 
 class WechatController extends Controller
 {
     /**
-     * 处理微信的请求消息
+     * 生成微信二维码
      *
      * @return string
      */
-    public function serve()
+    public function qrcode()
     {
-        echo 12312;
+        $app = Factory::miniProgram(config('wechat.mini_program.default'));
+        $response = $app->app_code->get('path/to/page');
+        $filename = $response->saveAs(storage_path('wechat/images/'), 'appcode.png');
+        var_dump($response);
         exit;
-        Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
-
-        $app = app('wechat.official_account');
-        $app->server->push(function ($message) {
-            return "欢迎关注 overtrue！";
-        });
-
-        return $app->server->serve();
     }
 
     public function getEasyWechatSession()
