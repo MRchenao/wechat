@@ -8,6 +8,15 @@
 
 Route::any('/', 'Wechat\WechatController@serve');
 
+Route::group(['middleware' => 'mock.user'], function () {//这个中间件可以先忽略，我们稍后再说
+    Route::middleware('wechat.oauth:snsapi_base')->group(function () {
+        Route::get('/login', 'Wechat\WechatController@autoLogin')->name('login');
+    });
+    Route::middleware('wechat.oauth:snsapi_userinfo')->group(function () {
+        Route::get('/register', 'Wechat\WechatController@autoRegister')->name('register');
+    });
+});
+
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/user', function () {
         $user = session('wechat.oauth_user'); // 拿到授权用户资料
