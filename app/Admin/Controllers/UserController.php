@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\UserModel;
+use App\Models\User;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -70,7 +70,7 @@ class UserController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(UserModel::class, function (Grid $grid) {
+        return Admin::grid(User::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
             $grid->name();
@@ -88,7 +88,7 @@ class UserController extends Controller
      */
     protected function form()
     {
-        return Admin::form(UserModel::class, function (Form $form) {
+        return Admin::form(User::class, function (Form $form) {
 
             $form->display('id', 'ID');
             $form->text('name', 'name')->rules('required');
