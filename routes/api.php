@@ -25,7 +25,7 @@ $where = [
 ];
 
 //api
-Route::group(['prefix' => '', 'middleware' => [],], function (Router $router) use ($where) {
+Route::group(['prefix' => '', 'middleware' => ['md5StringCheck'],], function (Router $router) use ($where) {
     $prefix = '{api_version}/{client}/{client_version}/web/';
     $pre_dir = 'Api\V1\Web' . '\\';
 

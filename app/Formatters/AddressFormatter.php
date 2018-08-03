@@ -35,4 +35,20 @@ class AddressFormatter implements FormatContract
         ];
     }
 
+    /**
+     * 修改list格式null的解析为空串
+     * @param $list
+     * @return mixed
+     */
+    public function transformList($list)
+    {
+        foreach ($list as &$item) {
+            $item['tel_phone'] = empty($item['tel_phone']) ? '' : $item['tel_phone'];
+            $item['mob_phone'] = empty($item['mob_phone']) ? '' : $item['mob_phone'];
+            $item['city_id'] = empty($item['city_id']) ? '' : $item['city_id'];
+        }
+
+        return $list;
+    }
+
 }

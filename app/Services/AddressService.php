@@ -10,7 +10,7 @@ namespace App\Services;
 
 use App\Models\Address;
 use App\Repositories\AddressRepository;
-use Illuminate\Http\Request;
+
 
 class AddressService extends BaseService
 {
@@ -46,25 +46,15 @@ class AddressService extends BaseService
         $data['is_default'] = self::IS_DEFALUT_ADDREDD;
         unset($data['s']);
 
-        return $this->create($data);
-    }
-
-    /**
-     * 获取过滤过后的数据
-     * @param Request $request 请求的request
-     * @param $array 需要过滤的数组字段
-     * @return array
-     */
-    public function getFilterData(Request $request, array $array)
-    {
-        $data = [];
-        foreach ($array as $value) {
-            if ($request->has($value) && $request->input($value) != '') {
-                $data[$value] = $request->input($value);
-            }
+        $where = [
+            'area_info' => $data['area_info'],
+            'address' => $data['address']
+        ];
+        if (!empty($this->repository->getOneRow($where, 'address_id'))) {
+            throwException(302, '地址信息重复，请不要重复添加！');
         }
 
-        return $data;
+        return $this->create($data);
     }
 
     /**
@@ -82,17 +72,16 @@ class AddressService extends BaseService
 
     /**
      * 删除地址
-     * @param $id address_id
+     * @param $data
      * @return bool|null
      */
-    public function delAddressById($id)
+    public function delAddress($data)
     {
-        $column = 'address_id';
+        $where = [
+            'member_id' => $data['member_id'],
+            'address_id' => $data['address_id'],
+        ];
 
-        if (!empty($id)) {
-            return $this->destroyBy($column, $id);
-        }
-
-        return false;
+        return $this->repository->del($where);
     }
 }

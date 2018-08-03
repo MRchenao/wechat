@@ -59,5 +59,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'wechat.oauth' => \Overtrue\LaravelWeChat\Middleware\OAuthAuthenticate::class,
         'mock.user' => \App\Http\Middleware\MockUser::class,
+        'md5StringCheck' => \App\Http\Middleware\Md5StringCheck::class,
     ];
 }

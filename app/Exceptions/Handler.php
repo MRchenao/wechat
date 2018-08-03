@@ -34,7 +34,7 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $exception
+     * @param  \Exception $exception
      * @return void
      */
     public function report(Exception $exception)
@@ -47,12 +47,29 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Exception $exception
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        if ($request->is('api/*')) {
+            $response = [];
+            $error = $this->convertExceptionToResponse($exception);
+            $response['status'] = false;
+            $response['message'] = 'something error';
+            if (config('app.debug')) {
+                $response['message'] = empty($exception->getMessage()) ? 'something error' : $exception->getMessage();
+                if ($error->getStatusCode() >= 500) {
+                    if (config('app.debug')) {
+                        $response['data'] = $exception->getTraceAsString();
+                        $response['code'] = $exception->getCode();
+                    }
+                }
+            }
+            return response()->json($response, $error->getStatusCode());
+        } else {
+            return parent::render($request, $exception);
+        }
     }
 }

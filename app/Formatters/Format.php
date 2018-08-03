@@ -63,12 +63,12 @@ trait Format
      * @param array $data
      * @return array
      */
-    public function formatCommonData(array $data = [])
+    public function formatCommonData(array $data = [], $message = '')
     {
         return [
             'status' => true,
             'code' => 200,
-            'message' => '',
+            'message' => $message,
             'data' => $data,
         ];
     }

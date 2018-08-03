@@ -31,4 +31,26 @@ class AddressRepository extends BaseRepository
         return empty($result) ? [] : $result;
     }
 
+    /**
+     * 获取一条数据
+     * @param array $where
+     * @param string $field
+     * @return array|mixed
+     */
+    public function getOneRow(array $where, $field = '*')
+    {
+        $result = $this->getOne($where, $field);
+        return empty($result) ? [] : $result;
+    }
+
+    /**
+     * 删除数据
+     * @param $where
+     * @return mixed
+     */
+    public function del($where)
+    {
+        return $this->model->deleteByWhere($where);
+    }
+
 }

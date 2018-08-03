@@ -94,7 +94,7 @@ function get_client_ip()
 /**
  * 生成随机字符串
  *
- * @param int  $length 字符串长度
+ * @param int $length 字符串长度
  * @param bool $isNmber 是否为数字
  *
  * @return string
@@ -116,3 +116,53 @@ function make_rand($length = 4, $isNmber = true)
 
     return $result;
 }
+
+/**
+ * 生成签名
+ * @return 签名
+ * @param $key 签名串
+ */
+function getSign($params, $key)
+{
+    //签名步骤一：按字典序排序数组参数
+    ksort($params);
+    $string = getToUrlParams($params);
+    //签名步骤二：在string后加入KEY
+    $string = $key . $string;
+    //签名步骤三：MD5加密
+    $string = md5($string);
+
+    return $string;
+}
+
+/**
+ * 将参数拼接为url: key=value&key=value
+ * @param   $params
+ * @return  string
+ */
+function getToUrlParams($params)
+{
+    $string = '';
+    if (!empty($params)) {
+        $array = array();
+        foreach ($params as $key => $value) {
+            $array[] = $key . '=' . $value;
+        }
+        $string = implode("&", $array);
+    }
+    return $string;
+}
+
+/**
+ * 抛出异常信息
+ * @param $code 异常信息代码
+ * @param $message 异常信息提示
+ * @throws Exception
+ */
+function throwException($code, $message)
+{
+    throw new \Exception($message, $code);
+}
+
+
+
