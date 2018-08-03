@@ -24,13 +24,6 @@ class MockUser
             $openid = $session['openid'];
             $key = $session['session_key'];
             $user_info['openid'] = $openid;
-            /*        $data['name'] = $user_info['nickName'];
-                    $data['gender'] = $user_info['gender'];
-                    $data['city'] = $user_info['city'];
-                    $data['province'] = $user_info['province'];
-                    $data['country'] = $user_info['country'];
-                    $data['avatarUrl'] = $user_info['avatarUrl'];
-                    $data['openid'] = $session['openid'];*/
             $user_info['session_key'] = $key;
             $login_key = md5($openid . $key . $this->string);
             Cache::put($login_key, $user_info, $this->cacheTime);
