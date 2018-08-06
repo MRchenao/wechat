@@ -11,10 +11,10 @@ Route::any('/qrcode', 'Wechat\WechatController@qrcode');
 //这个是公众号的登录注册验证接口，小程序不适用
 Route::group(['middleware' => 'mock.user'], function () {//这个中间件可以先忽略，我们稍后再说
     Route::middleware('wechat.oauth:snsapi_base')->group(function () {
-        Route::post('/login', 'Wechat\WechatController@autoLogin')->name('login');
+        Route::any('/login', 'Wechat\WechatController@autoLogin')->name('login');
     });
     Route::middleware('wechat.oauth:snsapi_userinfo')->group(function () {
-        Route::post('/register', 'Wechat\WechatController@autoRegister')->name('register');
+        Route::any('/register', 'Wechat\WechatController@autoRegister')->name('register');
     });
 });
 
