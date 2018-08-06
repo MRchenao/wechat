@@ -28,8 +28,8 @@ class MockUser
             $user_info = $request->input('userInfo');
             if (!empty($code)) {
                 $session = $app->auth->session($code);
-                $openid = $session['openid'];
-                $key = $session['session_key'];
+                $openid = empty($session['openid']) ? '' : $session['openid'];
+                $key = empty($session['session_key']) ? '' : $session['session_key'];
                 $user_info['openid'] = $openid;
                 $user_info['session_key'] = $key;
                 $login_key = md5($openid . $key . $this->string);
