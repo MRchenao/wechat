@@ -13,7 +13,7 @@ class MockUser
     use Format;
 
     protected $cacheTime = 86400;
-    protected $string = 'Fiasdjl8F9sajk9ASG23';
+    const TOKEN_STRING = 'Fiasdjl8F9sajk9ASG23';
 
     public function handle($request, Closure $next)
     {
@@ -32,7 +32,7 @@ class MockUser
                 $key = empty($session['session_key']) ? '' : $session['session_key'];
                 $user_info['openid'] = $openid;
                 $user_info['session_key'] = $key;
-                $login_key = md5($openid . $key . $this->string);
+                $login_key = md5($openid . $key . self::TOKEN_STRING);
                 Cache::put($login_key, $user_info, $this->cacheTime);
             }
             session(['wechat.oauth_user.default' => $user_info]);
