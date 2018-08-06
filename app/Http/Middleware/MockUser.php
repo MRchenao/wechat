@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Cache;
-use Overtrue\Socialite\User as SocialiteUser;
 use EasyWeChat\Factory;
 
 
@@ -16,7 +15,7 @@ class MockUser
     public function handle($request, Closure $next)
     {
         $token = $request->header('token');
-        if (!Cache::get($token)) {
+        if (!empty($token) && !Cache::get($token)) {
             $app = Factory::miniProgram(config('wechat.mini_program.default'));
             $code = $request->header('x-wx-code');
             $session = $app->auth->session($code);
