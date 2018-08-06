@@ -14,9 +14,11 @@ Route::group(['middleware' => 'mock.user'], function () {//这个中间件可以
         Route::any('/login', 'Wechat\WechatController@autoLogin')->name('login');
     //});
     //Route::middleware('wechat.oauth:snsapi_userinfo')->group(function () {
-        Route::any('/register', 'Wechat\WechatController@autoRegister')->name('register');
+
     //});
 });
+
+Route::any('/register', 'Wechat\WechatController@autoRegister')->name('register');
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/user', function () {
