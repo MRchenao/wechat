@@ -15,7 +15,7 @@ class MockUser
     public function handle($request, Closure $next)
     {
         $token = $request->header('token');
-        if (!empty($token) && !Cache::get($token)) {
+        if (empty($token) || !Cache::get($token)) {
             $app = Factory::miniProgram(config('wechat.mini_program.default'));
             $code = $request->header('x-wx-code');
             $session = $app->auth->session($code);
