@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Formatters\Format;
 use Closure;
 use Illuminate\Support\Facades\Cache;
 use EasyWeChat\Factory;
@@ -9,25 +10,36 @@ use EasyWeChat\Factory;
 
 class MockUser
 {
+    use Format;
+
     protected $cacheTime = 86400;
     protected $string = 'Fiasdjl8F9sajk9ASG23';
 
     public function handle($request, Closure $next)
     {
-        $token = $request->header('token');
-        if (empty($token) || !Cache::get($token)) {
+        try {
+            $token = $request->header('token');
+            if (!empty($token) && Cache::get($token)) {
+                return $next($request);
+            }
+
             $app = Factory::miniProgram(config('wechat.mini_program.default'));
             $code = $request->header('x-wx-code');
-            $session = $app->auth->session($code);
             $user_info = $request->input('userInfo');
-            $openid = $session['openid'];
-            $key = $session['session_key'];
-            $user_info['openid'] = $openid;
-            $user_info['session_key'] = $key;
-            $login_key = md5($openid . $key . $this->string);
-            Cache::put($login_key, $user_info, $this->cacheTime);
+            if (!empty($code)) {
+                $session = $app->auth->session($code);
+                $openid = $session['openid'];
+                $key = $session['session_key'];
+                $user_info['openid'] = $openid;
+                $user_info['session_key'] = $key;
+                $login_key = md5($openid . $key . $this->string);
+                Cache::put($login_key, $user_info, $this->cacheTime);
+            }
             session(['wechat.oauth_user.default' => $user_info]);
+
+            return $next($request);
+        } catch (\Exception $e) {
+            return response()->json($this->formatException($e));
         }
-        return $next($request);
     }
 }
