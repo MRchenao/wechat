@@ -54,6 +54,7 @@ class WechatController extends Controller
         $userData = [
             'password' => bcrypt('123456'),
             'openid' => $userInfo['openid'],
+            'email' => 'example@qq.com',
             'name' => $userInfo['nickName'],
             'gender' => $userInfo['gender'],
             'city' => $userInfo['city'],
